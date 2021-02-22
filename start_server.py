@@ -19,5 +19,5 @@ def set_colour():
 if __name__ == '__main__':
     server_socket, host_address = get_host_address()
 
-    app.run(host=host_address, port=5001)
+    app.run()
     server_socket.close()

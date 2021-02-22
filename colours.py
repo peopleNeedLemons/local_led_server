@@ -1,5 +1,7 @@
 import pigpio
-from flask import request
+from flask import request, jsonify
+
+from statuses import success_status_code
 
 
 def get_colour_field_from_request(field_name):
@@ -24,4 +26,4 @@ def change_rgb():
     pi.set_PWM_dutycycle(24, blue)  # blue
     pi.stop()
 
-    return "OK"
+    return jsonify(status=success_status_code, red=red, green=green, blue=blue)
