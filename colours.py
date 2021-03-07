@@ -20,10 +20,10 @@ def change_rgb():
     print(str(green))
     print(str(blue))
 
-    # pi = pigpio.pi()
-    # pi.set_PWM_dutycycle(17, red)  # red
-    # pi.set_PWM_dutycycle(22, green)  # green
-    # pi.set_PWM_dutycycle(24, blue)  # blue
-    # pi.stop()
+    pi = pigpio.pi()
+    pi.set_PWM_dutycycle(17, red)  # red
+    pi.set_PWM_dutycycle(22, green)  # green
+    pi.set_PWM_dutycycle(24, blue)  # blue
+    pi.stop()
 
     return jsonify(status=success_status_code, red=red, green=green, blue=blue)
