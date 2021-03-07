@@ -1,6 +1,6 @@
 from flask import Flask
 
-from colours import change_rgb
+from colour_changer import change_rgb, prepare_rgb_pre_set
 from local_utils import get_host_address, get_port_param
 
 app = Flask(__name__)
@@ -18,7 +18,11 @@ def set_colour():
 
 if __name__ == '__main__':
     server_socket, host_address = get_host_address()
-    port_param = get_port_param()
+    params = get_port_param()
 
-    app.run(host=host_address, port=port_param)
+    if params.setup:
+        prepare_rgb_pre_set(params.setup)
+
+    app.run(host=host_address, port=params.port)
+
     server_socket.close()

@@ -12,8 +12,13 @@ def get_host_address():
 def get_port_param():
     option_parser = optparse.OptionParser()
     option_parser.add_option("-p", "--port")
+    option_parser.add_option("-s", "--setup")
     (options, arguments) = option_parser.parse_args()
     if not options.port:
         option_parser.error("Please specify port by using -p argument")
+    if options.setup:
+        possible_setups = {"red", "green", "blue"}
+        if options.setup not in possible_setups:
+            option_parser.error("Possible options for -s command: " + str(possible_setups))
 
-    return options.port
+    return options
