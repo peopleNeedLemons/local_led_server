@@ -21,7 +21,7 @@ def ping_pig_to_change_colour(new_colour):
     result_blue = pi.set_PWM_dutycycle(24, new_colour.blue)
     pi.stop()
 
-    return result_red > 0 and result_green > 0 and result_blue > 0
+    return result_red >= 0 and result_green >= 0 and result_blue >= 0
 
 
 def change_rgb():

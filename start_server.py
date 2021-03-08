@@ -5,6 +5,7 @@ from local_utils import get_host_address, get_port_param
 
 app = Flask(__name__)
 
+#todo pigpio deamon may be not started
 
 @app.route('/hello_there')
 def buenos_dias():
